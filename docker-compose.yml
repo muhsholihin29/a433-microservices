@@ -5,24 +5,13 @@ version: "3.8"
 services:
   # Service 1, named "item-app".
   item-app:
-    # Use image with named "node" with tag "14.21.3" and the node version will follow
-    image: node:14.21.3
-    # Install dependencies and build the application and start application
-    command: sh -c "npm install --production --unsafe-perm && npm run build && npm start"
+    # Use image from docker hub sholihin29 with tag v1
+    image: sholihin29/item-app:v1
     # Use port Host 80 and port 8080 for container
     ports:
-      - 80:8080
+      - 81:8080
     # Will always restart if the container dies due to server restarts
     restart: always
-    # Use working directory /app
-    working_dir: /app
-    # Use volume ./:/app
-    volumes:
-      - ./:/app
-    # Setup environtment
-    environment:
-      NODE_ENV: production 
-      DB_HOST: item-db
     # It will wait for "item-db" to start before starting this service
     depends_on:
       - item-db
