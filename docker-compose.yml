@@ -9,7 +9,7 @@ services:
     image: sholihin29/item-app:v1
     # Use port Host 80 and port 8080 for container
     ports:
-      - 81:8080
+      - 80:8080
     # Will always restart if the container dies due to server restarts
     restart: always
     # It will wait for "item-db" to start before starting this service
